@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	
+	"github.com/danspts/helmdocs/pkg/generate/readme"
 )
 
 func main() {
@@ -63,7 +63,7 @@ func handleGenerateReadmeCommand(command string, args []string) {
 	generateReadmeCmd.Usage = usage(command, generateReadmeCmd)
 
 	generateReadmeCmd.Parse(args)
-	generateReadme(*schemaPath)
+	readme.GenerateReadme(*schemaPath)
 }
 
 func handleGenerateValuesCommand(command string, args []string) {
@@ -75,11 +75,6 @@ func handleGenerateValuesCommand(command string, args []string) {
 
 	generateValuesCmd.Parse(args)
 	generateValues(*schemaPath, *omitDefault)
-}
-
-func generateReadme(schemaPath string) {
-	fmt.Printf("Generating README with schema path: %s\n", schemaPath)
-	// Add logic to generate README based on the schemaPath
 }
 
 func generateValues(schemaPath string, omitDefault bool) {
