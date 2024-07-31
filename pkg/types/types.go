@@ -45,28 +45,39 @@ func (h *Hidden) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-type Field struct {
-	Name           string
-	ParentFullName string
-	Title          string
-	TypeDetails    string
-	Required       bool
-	DefaultValue   string
-	Children       []*Field
-}
+type (
+	Field struct {
+		Name           string
+		ParentFullName string
+		Title          string
+		TypeDetails    string
+		Required       bool
+		DefaultValue   string
+		Children       []*Field
+	}
+	FlatField struct{
+		*Field
+		depth          int
+	}
+)
 
-func (f *Field) flatten() []*Field {
-	flat := []*Field{f}
+func (f *Field) flatten(depth int) []*FlatField {
+	ff := &FlatField{Field: f, depth: depth}
+	flat := []*FlatField{ff}
 	for _, c := range f.Children {
-		flat = append(flat, c.flatten()...)
+		flat = append(flat, c.flatten(depth+1)...)
 	}
 	return flat
 }
 
-func (f *Field) Flatten() []*Field {
-	flat := []*Field{}
+func (f *Field) Flatten() []*FlatField {
+	flat := []*FlatField{}
 	for _, c := range f.Children {
-		flat = append(flat, c.flatten()...)
+		flat = append(flat, c.flatten(0)...)
 	}
 	return flat
+}
+
+func (f *FlatField) Depth() int {
+	return f.depth
 }
