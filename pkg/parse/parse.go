@@ -17,7 +17,6 @@ func extractDefaultFromHidden(hidden types.Hidden) string {
 	return ""
 }
 
-
 func ConvertTableToFieldTree(schema types.Property, prefix string) *types.Field {
 	// Add type restriction details if present
 	typeDetails := "**" + schema.Type + "**"
@@ -43,9 +42,9 @@ func ConvertTableToFieldTree(schema types.Property, prefix string) *types.Field 
 	}
 
 	f := &types.Field{
-		DefaultValue:   extractDefaultFromHidden(schema.Hidden),
-		TypeDetails:    typeDetails,
-		Title:          schema.Title,
+		DefaultValue: extractDefaultFromHidden(schema.Hidden),
+		TypeDetails:  typeDetails,
+		Title:        schema.Title,
 	}
 
 	// Traverse the properties and generate the table rows

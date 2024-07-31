@@ -10,17 +10,17 @@ type Schema struct {
 
 type Property struct {
 	Schema
-	Title       string              `json:"title,omitempty"`
-	Description string              `json:"description,omitempty"`
-	Form        bool                `json:"form,omitempty"`
-	Render      string              `json:"render,omitempty"`
-	Enum        []string            `json:"enum,omitempty"`
-	Pattern     string              `json:"pattern,omitempty"`
-	SliderMin   *int                `json:"sliderMin,omitempty"`
-	SliderMax   *int                `json:"sliderMax,omitempty"`
-	SliderUnit  string              `json:"sliderUnit,omitempty"`
-	Default     interface{}         `json:"default,omitempty"`
-	Hidden      Hidden              `json:"hidden,omitempty"`
+	Title       string      `json:"title,omitempty"`
+	Description string      `json:"description,omitempty"`
+	Form        bool        `json:"form,omitempty"`
+	Render      string      `json:"render,omitempty"`
+	Enum        []string    `json:"enum,omitempty"`
+	Pattern     string      `json:"pattern,omitempty"`
+	SliderMin   *int        `json:"sliderMin,omitempty"`
+	SliderMax   *int        `json:"sliderMax,omitempty"`
+	SliderUnit  string      `json:"sliderUnit,omitempty"`
+	Default     interface{} `json:"default,omitempty"`
+	Hidden      Hidden      `json:"hidden,omitempty"`
 }
 
 type Hidden struct {
