@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/danspts/helmdocs/pkg/generate/readme"
+	"github.com/danspts/helmdocs/pkg/generate/values"
 )
 
 func main() {
@@ -69,15 +70,10 @@ func handleGenerateReadmeCommand(command string, args []string) {
 func handleGenerateValuesCommand(command string, args []string) {
 	generateValuesCmd := flag.NewFlagSet("values", flag.ExitOnError)
 	schemaPath := generateValuesCmd.String("schema-path", "values.schema.json", "Path to the schema file")
-	omitDefault := generateValuesCmd.Bool("omit-default", false, "Omit default values")
+	omitDefault := generateValuesCmd.Bool("omit-default", true, "Omit default values")
 
 	generateValuesCmd.Usage = usage(command, generateValuesCmd)
 
 	generateValuesCmd.Parse(args)
-	generateValues(*schemaPath, *omitDefault)
-}
-
-func generateValues(schemaPath string, omitDefault bool) {
-	fmt.Printf("Generating values with schema path: %s, omit default: %t\n", schemaPath, omitDefault)
-	// Add logic to generate values based on the schemaPath and omitDefault
+	values.GenerateValues(*schemaPath, *omitDefault)
 }
