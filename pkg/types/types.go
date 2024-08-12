@@ -50,14 +50,15 @@ type (
 		Name           string
 		ParentFullName string
 		Title          string
+		Type           string
 		TypeDetails    string
 		Required       bool
 		DefaultValue   string
 		Children       []*Field
 	}
-	FlatField struct{
+	FlatField struct {
 		*Field
-		depth          int
+		depth int
 	}
 )
 

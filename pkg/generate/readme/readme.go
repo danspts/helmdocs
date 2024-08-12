@@ -47,11 +47,15 @@ func generateMarkdownTableWithHeader(schema types.Schema) string {
 	tree := parse.ConvertTableToFieldTree(types.Property{Schema: schema}, "")
 	flatList := tree.Flatten()
 	for _, field := range flatList {
+		typeDetails := field.TypeDetails
+		if len(typeDetails) > 0 {
+			typeDetails = " " + typeDetails
+		}
 		if field.ParentFullName == "" {
-			sb.WriteString(fmt.Sprintf("| `%s` | %s | %s | %v | %s |\n", field.Name, field.Title, field.TypeDetails, field.Required, field.DefaultValue))
+			sb.WriteString(fmt.Sprintf("| `%s` | %s | **%s**%s | %v | %s |\n", field.Name, field.Title, field.Type, field.TypeDetails, field.Required, field.DefaultValue))
 
 		} else {
-			sb.WriteString(fmt.Sprintf("| `%s.%s` | %s | %s | %v | %s |\n", field.ParentFullName, field.Name, field.Title, field.TypeDetails, field.Required, field.DefaultValue))
+			sb.WriteString(fmt.Sprintf("| `%s.%s` | %s | **%s**%s | %v | %s |\n", field.ParentFullName, field.Name, field.Title, field.Type, field.TypeDetails, field.Required, field.DefaultValue))
 		}
 	}
 	return sb.String()

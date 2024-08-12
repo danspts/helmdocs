@@ -10,13 +10,13 @@ import (
 	"github.com/danspts/helmdocs/pkg/generate/values"
 )
 
-func main() {
-	if len(os.Args) < 2 {
+func helmdocs(args []string){
+	if len(args) < 2 {
 		fmt.Println("expected 'generate' subcommand")
 		os.Exit(1)
 	}
 
-	switch os.Args[1] {
+	switch args[1] {
 	case "generate":
 		generateCmd := flag.NewFlagSet("generate", flag.ExitOnError)
 		generateCmd.Usage = func() {
@@ -26,19 +26,19 @@ func main() {
 			generateCmd.PrintDefaults()
 		}
 
-		if len(os.Args) < 3 {
+		if len(args) < 3 {
 			fmt.Println("expected 'readme' or 'values' subcommand")
 			generateCmd.Usage()
 			os.Exit(0)
 		}
 
 		command := "\033[1mhelmdocs\033[0m "
-		command += strings.Join(os.Args[1:3], " ")
-		switch os.Args[2] {
+		command += strings.Join(args[1:3], " ")
+		switch args[2] {
 		case "readme":
-			handleGenerateReadmeCommand(command, os.Args[3:])
+			handleGenerateReadmeCommand(command, args[3:])
 		case "values":
-			handleGenerateValuesCommand(command, os.Args[3:])
+			handleGenerateValuesCommand(command, args[3:])
 		default:
 			fmt.Println("expected 'readme' or 'values' subcommand")
 			generateCmd.Usage()
@@ -76,4 +76,8 @@ func handleGenerateValuesCommand(command string, args []string) {
 
 	generateValuesCmd.Parse(args)
 	values.GenerateValues(*schemaPath, *omitDefault)
+}
+
+func main() {
+	helmdocs(os.Args)
 }

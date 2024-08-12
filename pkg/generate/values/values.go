@@ -55,10 +55,9 @@ func generateMarkdownTableWithHeader(schema types.Schema, omitDft bool) string {
 		} else if len(field.DefaultValue) > 0 {
 			sb.WriteString(fmt.Sprintf("%s%s%s: %s\n", indent, commitDefaultToken, field.Name, field.DefaultValue))
 		} else {
-			sb.WriteString(fmt.Sprintf("%s%s: <%s>\n", indent, field.Name, field.TypeDetails))
+			sb.WriteString(fmt.Sprintf("%s%s: <%s>\n", indent, field.Name, field.Type))
 		}
 
 	}
 	return sb.String()
-
 }

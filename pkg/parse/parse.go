@@ -19,10 +19,10 @@ func extractDefaultFromHidden(hidden types.Hidden) string {
 
 func ConvertTableToFieldTree(schema types.Property, prefix string) *types.Field {
 	// Add type restriction details if present
-	typeDetails := "**" + schema.Type + "**"
+	typeDetails := ""
 	if schema.SliderMin != nil || schema.SliderMax != nil || schema.SliderUnit != "" {
 		unit := "*" + schema.SliderUnit + "*"
-		typeDetails += ` (slider `
+		typeDetails += `(slider `
 		if schema.SliderMin != nil {
 			typeDetails += fmt.Sprintf(`"%d%s\" ≤ `, *schema.SliderMin, unit)
 		}
@@ -34,15 +34,23 @@ func ConvertTableToFieldTree(schema types.Property, prefix string) *types.Field 
 	}
 
 	if len(schema.Enum) > 0 {
-		typeDetails += fmt.Sprintf(` *[enum]* <details>"%s"</details>`, strings.Join(schema.Enum, `", "`))
+		typeDetails += fmt.Sprintf(`*[enum]* <details>"%s"</details>`, strings.Join(schema.Enum, `", "`))
 	}
 
 	if schema.Pattern != "" {
-		typeDetails += fmt.Sprintf(` (pattern: *"%s"*)`, schema.Pattern)
+		typeDetails += fmt.Sprintf(`(pattern: *"%s"*)`, schema.Pattern)
+	}
+
+	var dft string
+	if schema.Default == nil {
+		dft = ""
+	} else {
+		dft = fmt.Sprint(schema.Default)
 	}
 
 	f := &types.Field{
-		DefaultValue: extractDefaultFromHidden(schema.Hidden),
+		DefaultValue: dft,
+		Type: schema.Type,
 		TypeDetails:  typeDetails,
 		Title:        schema.Title,
 	}
