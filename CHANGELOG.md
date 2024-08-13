@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/danspts/helmdocs/compare/v1.0.0...v1.1.0) (2024-08-13)
+
+
+### Features
+
+* CI - add goreleaser ([7d0e629](https://github.com/danspts/helmdocs/commit/7d0e6292fd30d4839943dbd30fabf7108f60d49c))
+
 ## 1.0.0 (2024-08-13)
 
 
