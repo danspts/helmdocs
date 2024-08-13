@@ -1,0 +1,32 @@
+project_name: helmdocs
+
+builds:
+  - id: binary
+    main: ./cmd/cmd.go
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w
+
+dockers:
+  - image_templates:
+      - "danspts/helmdocs:{{ .Version }}"
+    dockerfile: Dockerfile
+
+
+archives:
+  - format: tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
+    files:
+      - LICENSE
+      - README.md
+
+release:
+  github:
+    owner: danspts
+    name: helmdocs
