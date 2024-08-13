@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/danspts/helmdocs/compare/v1.1.1...v1.1.2) (2024-08-13)
+
+
+### Bug Fixes
+
+* CI - fix goreleaser put all tags ([fb58a6a](https://github.com/danspts/helmdocs/commit/fb58a6a37ff012a07c2537c4349406d22216482d))
+
 ## [1.1.1](https://github.com/danspts/helmdocs/compare/v1.1.0...v1.1.1) (2024-08-13)
 
 
