@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/danspts/helmdocs/compare/v1.1.0...v1.1.1) (2024-08-13)
+
+
+### Bug Fixes
+
+* CI - fix goreleaser tag matching regexp ([59cf85b](https://github.com/danspts/helmdocs/commit/59cf85b0e8d555d892b3b8a8722c7fed13c8e209))
+
 ## [1.1.0](https://github.com/danspts/helmdocs/compare/v1.0.0...v1.1.0) (2024-08-13)
 
 
