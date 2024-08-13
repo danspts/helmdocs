@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/danspts/helmdocs/compare/v1.1.2...v1.1.3) (2024-08-13)
+
+
+### Bug Fixes
+
+* CI - one release pipeline ([bd2fba6](https://github.com/danspts/helmdocs/commit/bd2fba685b95efa3d7fe1593d6bb4b99e015afb4))
+
 ## [1.1.2](https://github.com/danspts/helmdocs/compare/v1.1.1...v1.1.2) (2024-08-13)
 
 
