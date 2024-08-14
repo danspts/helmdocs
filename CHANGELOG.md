@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/danspts/helmdocs/compare/v1.3.0...v1.3.1) (2024-08-14)
+
+
+### Bug Fixes
+
+* go version - drop version ([0c89024](https://github.com/danspts/helmdocs/commit/0c89024a364e316f82e444ed913d6ca9c4a7588f))
+
 ## [1.3.0](https://github.com/danspts/helmdocs/compare/v1.2.0...v1.3.0) (2024-08-14)
 
 
