@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/danspts/helmdocs/compare/v1.3.1...v1.4.0) (2024-08-14)
+
+
+### Features
+
+* docker - support multiple platforms and show commit/version from within the binary ([757da49](https://github.com/danspts/helmdocs/commit/757da4946a141e2244ce27bfb26f989f9e654c8f))
+
 ## [1.3.1](https://github.com/danspts/helmdocs/compare/v1.3.0...v1.3.1) (2024-08-14)
 
 
