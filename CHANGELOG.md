@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.7](https://github.com/danspts/helmdocs/compare/v1.4.6...v1.4.7) (2024-08-14)
+
+
+### Bug Fixes
+
+* goreleaser action - give moreeee permissions ([2a9890c](https://github.com/danspts/helmdocs/commit/2a9890c105382da8cb8103682a7a988f6fc67379))
+
 ## [1.4.6](https://github.com/danspts/helmdocs/compare/v1.4.5...v1.4.6) (2024-08-14)
 
 
