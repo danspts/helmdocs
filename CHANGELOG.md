@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.3](https://github.com/danspts/helmdocs/compare/v1.4.2...v1.4.3) (2024-08-14)
+
+
+### Bug Fixes
+
+* goreleaser - disable changelog ([2c40f0e](https://github.com/danspts/helmdocs/commit/2c40f0e634d8cba506c5c92329f786048cbff022))
+
 ## [1.4.2](https://github.com/danspts/helmdocs/compare/v1.4.1...v1.4.2) (2024-08-14)
 
 
