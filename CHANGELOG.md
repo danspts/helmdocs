@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/danspts/helmdocs/compare/v1.1.5...v1.2.0) (2024-08-14)
+
+
+### Features
+
+* License - add license ([a7f8c8e](https://github.com/danspts/helmdocs/commit/a7f8c8e6b8df6f7d07f1e8b6303b48cfae10c2df))
+
 ## [1.1.5](https://github.com/danspts/helmdocs/compare/v1.1.4...v1.1.5) (2024-08-14)
 
 
