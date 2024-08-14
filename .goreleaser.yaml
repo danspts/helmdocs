@@ -16,9 +16,6 @@ builds:
       - amd64
       - arm64
 
-universal_binaries:
-  - replace: true
-
 dockers:
   - image_templates:
       - "danspts/helmdocs:{{ .Version }}"
@@ -28,7 +25,7 @@ dockers:
 archives:
   - format: tar.gz
     wrap_in_directory: true
-    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}_{{{{ .Version }}}}"
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
     files:
       - LICENSE
       - README.md

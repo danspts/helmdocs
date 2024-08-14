@@ -13,14 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       release_created: ${{ steps.release-please.outputs.release_created }}
+      tag_name: ${{ steps.release-please.outputs.tag_name }} 
       version: ${{ steps.release-please.outputs.version }}
+      all: ${{ toJSON(steps.release-please.outputs) }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
       - name: Release Please
         id: release-please
         uses: googleapis/release-please-action@v4
@@ -34,7 +30,8 @@ jobs:
     if: needs.release-please.outputs.release_created
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+      - run: git fetch --force --tags
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Docker Login
@@ -48,9 +45,11 @@ jobs:
         with:
           go-version-file: 'go.mod'
       - name: Run GoReleaser
-        uses: goreleaser/goreleaser-action@v2
+        uses: goreleaser/goreleaser-action@v5
         with:
           version: latest
           args: release --clean
         env:
+          REGISTRY: ghcr.io
+          IMAGE_NAME: ${{ github.repository }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
