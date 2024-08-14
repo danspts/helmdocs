@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.8](https://github.com/danspts/helmdocs/compare/v1.4.7...v1.4.8) (2024-08-14)
+
+
+### Bug Fixes
+
+* goreleaser action - give moreeeeeeeeee permissions ([1da120e](https://github.com/danspts/helmdocs/commit/1da120e9b4ea0e4e13dc8f29c2fac0fe2d62df26))
+
 ## [1.4.7](https://github.com/danspts/helmdocs/compare/v1.4.6...v1.4.7) (2024-08-14)
 
 
