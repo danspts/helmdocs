@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.4](https://github.com/danspts/helmdocs/compare/v1.4.3...v1.4.4) (2024-08-14)
+
+
+### Bug Fixes
+
+* goreleaser - fix main path ([c12057b](https://github.com/danspts/helmdocs/commit/c12057b4cb94f6d92e5e206b8b491e848ea3c32c))
+
 ## [1.4.3](https://github.com/danspts/helmdocs/compare/v1.4.2...v1.4.3) (2024-08-14)
 
 
