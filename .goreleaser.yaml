@@ -2,6 +2,11 @@ project_name: helmdocs
 
 builds:
   - id: binary
+    env:
+      - CGO_ENABLED=0
+    mod_timestamp: "{{ .CommitTimestamp }}"
+    ldflags:
+      - "-s -w -X main.version={{ .Version }} -X main.commit={{ .Commit }}"
     main: ./cmd/cmd.go
     goos:
       - linux
@@ -10,8 +15,9 @@ builds:
     goarch:
       - amd64
       - arm64
-    ldflags:
-      - -s -w
+
+universal_binaries:
+  - replace: true
 
 dockers:
   - image_templates:
@@ -21,12 +27,14 @@ dockers:
 
 archives:
   - format: tar.gz
-    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
+    wrap_in_directory: true
+    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}_{{{{ .Version }}}}"
     files:
       - LICENSE
       - README.md
 
-release:
-  github:
-    owner: danspts
-    name: helmdocs
+checksum:
+  name_template: "checksums.txt"
+
+snapshot:
+  name_template: "{{ .Tag }}-next"
