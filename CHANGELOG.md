@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.5](https://github.com/danspts/helmdocs/compare/v1.4.4...v1.4.5) (2024-08-14)
+
+
+### Bug Fixes
+
+* dockerhub - give permission to write packages ([ae2b40e](https://github.com/danspts/helmdocs/commit/ae2b40e9d8a7126334a38f47f4aff386e7e51f40))
+
 ## [1.4.4](https://github.com/danspts/helmdocs/compare/v1.4.3...v1.4.4) (2024-08-14)
 
 
