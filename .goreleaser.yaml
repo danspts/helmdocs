@@ -1,20 +1,40 @@
 project_name: helmdocs
 
 builds:
-  - id: binary
-    env:
+  - env:
       - CGO_ENABLED=0
     mod_timestamp: "{{ .CommitTimestamp }}"
+    flags:
+      - -trimpath
     ldflags:
       - "-s -w -X main.version={{ .Version }} -X main.commit={{ .Commit }}"
-    main: ./cmd/cmd.go
     goos:
-      - linux
-      - darwin
-      - windows
+      - "darwin"
+      - "freebsd"
+      - "linux"
+      - "windows"
     goarch:
-      - amd64
-      - arm64
+      - "amd64"
+      - "386"
+      - "arm"
+      - "arm64"
+    goarm:
+      - "6"
+      - "7"
+
+universal_binaries:
+  - replace: false
+
+archives:
+  - format: tar.gz
+    name_template: |-
+      {{ .ProjectName }}-{{ .Version }}_{{ .Os }}_{{ if eq .Arch "all" }}universal{{ else }}{{ .Arch }}{{ end }}{{ if .Arm }}v{{ .Arm }}{{ end }}{{ if not (eq .Amd64 "v1") }}{{ .Amd64 }}{{ end }}
+    wrap_in_directory: true
+    format_overrides:
+      - goos: windows
+        format: zip
+    replacements:
+      darwin: macos
 
 dockers:
   - image_templates:
@@ -81,16 +101,11 @@ docker_manifests:
       - "{{ .Env.REGISTRY }}/{{ .Env.IMAGE_NAME }}:latest-armv6"
       - "{{ .Env.REGISTRY }}/{{ .Env.IMAGE_NAME }}:latest-armv7"
 
-archives:
-  - format: tar.gz
-    wrap_in_directory: true
-    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
-    files:
-      - LICENSE
-      - README.md
-
 checksum:
   name_template: "checksums.txt"
 
 snapshot:
   name_template: "{{ .Tag }}-next"
+
+changelog:
+  skip: true
