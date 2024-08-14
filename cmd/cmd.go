@@ -10,8 +10,14 @@ import (
 	"github.com/danspts/helmdocs/pkg/generate/values"
 )
 
-func helmdocs(args []string){
+var (
+	version = "dev"
+	commit  = ""
+)
+
+func helmdocs(args []string) {
 	if len(args) < 2 {
+		fmt.Printf("version: %s, commit:%s\n", version, commit)
 		fmt.Println("expected 'generate' subcommand")
 		os.Exit(1)
 	}
