@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.9](https://github.com/danspts/helmdocs/compare/v1.4.8...v1.4.9) (2024-08-14)
+
+
+### Bug Fixes
+
+* goreleaser action - move registry to docker.io ([cf6b07b](https://github.com/danspts/helmdocs/commit/cf6b07b5e8dffbfe831b1aa9bc5f61d94fa04d7c))
+
 ## [1.4.8](https://github.com/danspts/helmdocs/compare/v1.4.7...v1.4.8) (2024-08-14)
 
 
