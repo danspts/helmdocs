@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.2](https://github.com/danspts/helmdocs/compare/v1.4.1...v1.4.2) (2024-08-14)
+
+
+### Bug Fixes
+
+* CI - fix goreleaser ([8450547](https://github.com/danspts/helmdocs/commit/8450547865a110b7b39c8fd2143b0f475a0dc089))
+
 ## [1.4.1](https://github.com/danspts/helmdocs/compare/v1.4.0...v1.4.1) (2024-08-14)
 
 
