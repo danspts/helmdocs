@@ -50,7 +50,7 @@ func ConvertTableToFieldTree(schema types.Property, prefix string) *types.Field 
 
 	f := &types.Field{
 		DefaultValue: dft,
-		Type: schema.Type,
+		Type:         schema.Type,
 		TypeDetails:  typeDetails,
 		Title:        schema.Title,
 	}
