@@ -1,15 +1,41 @@
-name: Release Semantic Tag
+name: Release
 
-on:
-  push:
-    branches:
-      - main
+on: [push]
+
 permissions:
   contents: write
   pull-requests: write
 
 jobs:
+  golangci:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: stable
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v6
+        with:
+          version: v1.59
+  test:
+    name: Test and Coverage
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version-file: 'go.mod'
+    - name: Run tests with coverage
+      run: |
+        go test -v ./... -coverprofile=coverage.out
+        go tool cover -func=coverage.out
   release-please:
+    if: github.ref == 'refs/heads/main'
+    needs: [test, golangci]
     runs-on: ubuntu-latest
     outputs:
       release_created: ${{ steps.release-please.outputs.release_created }}
