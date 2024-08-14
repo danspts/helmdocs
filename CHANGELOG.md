@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/danspts/helmdocs/compare/v1.2.0...v1.3.0) (2024-08-14)
+
+
+### Features
+
+* README - add a preface to the repo ([0056f56](https://github.com/danspts/helmdocs/commit/0056f564af7e4940e43b05d478217aec390da301))
+
 ## [1.2.0](https://github.com/danspts/helmdocs/compare/v1.1.5...v1.2.0) (2024-08-14)
 
 
