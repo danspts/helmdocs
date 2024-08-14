@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.5.0](https://github.com/danspts/helmdocs/compare/v1.4.8...v1.5.0) (2024-08-14)
+
+
+### Features
+
+* CI - add lint and test in pipeline ([7838725](https://github.com/danspts/helmdocs/commit/7838725a51eda0deca3a6553d2ef998e6aaba9d8))
+* CI - format parse.go ([f65a3bd](https://github.com/danspts/helmdocs/commit/f65a3bd2d22a76d5ee81d477f8e46ea0edb5f7b1))
+* CI - gofmt ([f758f5e](https://github.com/danspts/helmdocs/commit/f758f5ede3b92e928d432ac63fda04d3e5ec248d))
+
 ## [1.4.8](https://github.com/danspts/helmdocs/compare/v1.4.7...v1.4.8) (2024-08-14)
 
 
