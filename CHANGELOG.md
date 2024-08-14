@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/danspts/helmdocs/compare/v1.1.3...v1.1.4) (2024-08-14)
+
+
+### Bug Fixes
+
+* CI - go 1.23 ([ab11529](https://github.com/danspts/helmdocs/commit/ab11529847304323647cbeca6a26a4d70c1e8fa6))
+
 ## [1.1.3](https://github.com/danspts/helmdocs/compare/v1.1.2...v1.1.3) (2024-08-13)
 
 
