@@ -33,8 +33,6 @@ archives:
     format_overrides:
       - goos: windows
         format: zip
-    replacements:
-      darwin: macos
 
 dockers:
   - image_templates:
@@ -108,4 +106,4 @@ snapshot:
   name_template: "{{ .Tag }}-next"
 
 changelog:
-  skip: true
+  disable: true
