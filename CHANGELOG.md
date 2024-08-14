@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/danspts/helmdocs/compare/v1.4.0...v1.4.1) (2024-08-14)
+
+
+### Bug Fixes
+
+* CI - fix dockerfile ([e66a28f](https://github.com/danspts/helmdocs/commit/e66a28f5ee2c3908b5c085d25376807646e6d405))
+
 ## [1.4.0](https://github.com/danspts/helmdocs/compare/v1.3.1...v1.4.0) (2024-08-14)
 
 
