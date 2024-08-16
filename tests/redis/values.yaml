@@ -1,0 +1,26 @@
+architecture: <string> #  *[enum]* <details>"standalone", "replication"</details>
+
+auth:
+  enabled: <boolean>
+  password: <string>
+
+master:
+  kind: <string> #  *[enum]* <details>"Deployment", "StatefulSet", "DaemonSet"</details>
+  persistence:
+    enabled: <boolean>
+    size: <string> # (slider "1*Gi*\" ≤ "x*Gi*" ≤ "100*Gi*")
+
+replica:
+  kind: <string> #  *[enum]* <details>"DaemonSet", "StatefulSet"</details>
+  replicaCount: <integer>
+  persistence:
+    enabled: <boolean>
+    size: <string> # (slider "1*Gi*\" ≤ "x*Gi*" ≤ "100*Gi*")
+
+volumePermissions:
+  enabled: <boolean>
+
+metrics:
+  enabled: <boolean>
+  serviceMonitor:
+    enabled: <boolean>
