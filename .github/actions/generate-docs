@@ -1,0 +1,36 @@
+name: "Generate Values or README"
+description: "A reusable GitHub Action to generate values or README files using ghcr.io/danspts/helmdocs:1.6.1"
+
+inputs:
+  command:
+    description: "Specify 'values' to generate values.yaml or 'readme' to generate README.md"
+    default: "values"
+
+  schema_path:
+    description: "Path to the values.schema.json file"
+
+  output_file:
+    description: "Output file path"
+
+  omit_default:
+    description: "Omit default values when generating values.yaml (only applicable for 'values' command)"
+    type: choice
+    options: 
+    - "true"
+    - "false"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Generate Values or README
+      run: |
+        if [ "${{ inputs.command }}" = "values" ]; then
+          docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace ghcr.io/danspts/helmdocs:1.6.1 \
+            generate values -schema-path ${{ inputs.schema_path }} -output ${{ inputs.output_file }} -omit-default ${{ inputs.omit_default }};
+        elif [ "${{ inputs.command }}" = "readme" ]; then
+          docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace ghcr.io/danspts/helmdocs:1.6.1 \
+            generate readme -schema-path ${{ inputs.schema_path }} -output ${{ inputs.output_file }};
+        else
+          echo "Invalid command: ${{ inputs.command }}. Must be 'values' or 'readme'.";
+          exit 1;
+        fi

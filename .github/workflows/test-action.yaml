@@ -1,0 +1,26 @@
+name: Generate Docs
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Generate Values
+        uses: your-repo/.github/actions/generate-docs@main
+        with:
+          command: values
+          schema_path: "tests/redis/values.schema.json"
+          output_file: "tests/redis/values.yaml"
+          omit_default: "false"
+      
+      - name: Generate README
+        uses: your-repo/.github/actions/generate-docs@main
+        with:
+          command: readme
+          schema_path: "tests/redis/values.schema.json"
+          output_file: "tests/redis/README.md"
