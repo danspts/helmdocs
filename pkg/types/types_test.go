@@ -1,6 +1,7 @@
 package types
 
 import (
+	"encoding/json"
 	"reflect"
 	"testing"
 )
@@ -117,4 +118,41 @@ func TestFlatField_Depth(t *testing.T) {
 			}
 		})
 	}
+}
+
+func TestHidden_UnmarshalJSON(t *testing.T) {
+	t.Run("JSON Object", func(t *testing.T) {
+		jsonData := []byte(`{"condition": true, "value": "some value"}`)
+		var h Hidden
+		err := json.Unmarshal(jsonData, &h)
+		if err != nil {
+			t.Errorf("Unexpected error: %v", err)
+		}
+
+		if h.Condition != true || h.Value != "some value" {
+			t.Errorf("Expected {true, \"some value\"}, got {%v, %v}", h.Condition, h.Value)
+		}
+	})
+
+	t.Run("JSON String", func(t *testing.T) {
+		jsonData := []byte(`"simple string"`)
+		var h Hidden
+		err := json.Unmarshal(jsonData, &h)
+		if err != nil {
+			t.Errorf("Unexpected error: %v", err)
+		}
+
+		if h.Condition != false || h.Value != "simple string" {
+			t.Errorf("Expected {false, \"simple string\"}, got {%v, %v}", h.Condition, h.Value)
+		}
+	})
+
+	t.Run("Invalid JSON", func(t *testing.T) {
+		jsonData := []byte(`{"invalid": "json"`)
+		var h Hidden
+		err := json.Unmarshal(jsonData, &h)
+		if err == nil {
+			t.Errorf("Expected error, got nil")
+		}
+	})
 }
