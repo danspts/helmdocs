@@ -243,3 +243,44 @@ metrics:
     enabled: <boolean>
 
 ```
+
+### GHA
+
+You can create a workflow:
+
+```yaml
+name: Generate Docs
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Generate Values
+        uses: ./.github/actions/generate-docs
+        with:
+          command: values
+          schema_path: "tests/redis/values.schema.json"
+          output_file: "tests/redis/values.yaml"
+          omit_default: "false"
+      
+      - name: Generate README
+        uses: ./.github/actions/generate-docs
+        with:
+          command: readme
+          schema_path: "tests/redis/values.schema.json"
+          output_file: "tests/redis/README.md"
+
+```
+
+If you want to fail the tests if things were not generated, you can run:
+
+```yaml
+- name: Fail if there are uncommitted changes
+  run: git diff --exit-code
+```
