@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.7.0](https://github.com/danspts/helmdocs/compare/v1.6.1...v1.7.0) (2024-08-16)
+
+
+### Features
+
+* Actions- add new actions to check GHA usability ([3b009e9](https://github.com/danspts/helmdocs/commit/3b009e9eebef36e67fa3371b81a46d78c38fc184))
+* Documentation - document how to use the project ([bd922bb](https://github.com/danspts/helmdocs/commit/bd922bb86eba688b7421aeeffbc70f30e2794800))
+* Documentation- write how to set up the helmdocs gha pipeline ([41aacd4](https://github.com/danspts/helmdocs/commit/41aacd44222aa7fee9d70fe8b159496c8925fa28))
+
 ## [1.6.1](https://github.com/danspts/helmdocs/compare/v1.6.0...v1.6.1) (2024-08-16)
 
 
