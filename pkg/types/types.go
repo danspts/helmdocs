@@ -30,12 +30,10 @@ type Hidden struct {
 
 func (h *Hidden) UnmarshalJSON(data []byte) error {
 	if data[0] == '{' {
-		// Data is an object
 		type Alias Hidden
 		aux := &struct{ *Alias }{Alias: (*Alias)(h)}
 		return json.Unmarshal(data, &aux)
 	}
-	// Data is a string
 	var str string
 	if err := json.Unmarshal(data, &str); err != nil {
 		return err
