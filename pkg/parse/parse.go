@@ -8,7 +8,7 @@ import (
 	"github.com/danspts/helmdocs/pkg/types"
 )
 
-func extractDefaultFromHidden(hidden types.Hidden) string {
+func extractDefaultFromHidden(hidden types.Hidden) any {
 	// Check if the hidden attribute has a condition and a value
 	if !hidden.Condition && hidden.Value != "" {
 		// Return the default value based on the hidden attribute's value
@@ -34,7 +34,7 @@ func ConvertTableToFieldTree(schema types.Property, prefix string) *types.Field 
 	}
 
 	if len(schema.Enum) > 0 {
-		typeDetails += fmt.Sprintf(`*[enum]* <details>"%s"</details>`, strings.Join(schema.Enum, `", "`))
+		typeDetails += fmt.Sprintf(` *[enum]* <details>"%s"</details>`, strings.Join(schema.Enum, `", "`))
 	}
 
 	if schema.Pattern != "" {

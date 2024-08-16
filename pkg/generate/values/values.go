@@ -22,12 +22,16 @@ func GenerateValues(schema types.Schema, omitDft bool) string {
 			sb.WriteString("\n")
 		}
 		indent := strings.Repeat("  ", field.Depth())
+		comment := ""
+		if field.TypeDetails != "" {
+			comment = " # " + field.TypeDetails
+		}
 		if len(field.Children) > 0 {
-			sb.WriteString(fmt.Sprintf("%s%s:\n", indent, field.Name))
+			sb.WriteString(fmt.Sprintf("%s%s:%s\n", indent, field.Name, comment))
 		} else if len(field.DefaultValue) > 0 {
-			sb.WriteString(fmt.Sprintf("%s%s%s: %s\n", indent, commitDefaultToken, field.Name, field.DefaultValue))
+			sb.WriteString(fmt.Sprintf("%s%s%s: %s%s\n", indent, commitDefaultToken, field.Name, field.DefaultValue, comment))
 		} else {
-			sb.WriteString(fmt.Sprintf("%s%s: <%s>\n", indent, field.Name, field.Type))
+			sb.WriteString(fmt.Sprintf("%s%s: <%s>%s\n", indent, field.Name, field.Type, comment))
 		}
 
 	}

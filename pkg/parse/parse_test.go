@@ -122,7 +122,7 @@ func TestConvertTableToFieldTree(t *testing.T) {
 						Name:           "field1",
 						Type:           "integer",
 						Title:          "Field 1",
-						TypeDetails:    `*[enum]* <details>"1", "2", "3"</details>`,
+						TypeDetails:    ` *[enum]* <details>"1", "2", "3"</details>`,
 						ParentFullName: "",
 						Children:       nil,
 					},
