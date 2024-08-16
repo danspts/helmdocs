@@ -24,8 +24,8 @@ type Property struct {
 }
 
 type Hidden struct {
-	Condition bool   `json:"condition"`
-	Value     any `json:"value"`
+	Condition bool `json:"condition"`
+	Value     any  `json:"value"`
 }
 
 func (h *Hidden) UnmarshalJSON(data []byte) error {
