@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Generate Values
-        uses: .github/actions/generate-docs
+        uses: ./.github/actions/generate-docs
         with:
           command: values
           schema_path: "tests/redis/values.schema.json"
@@ -19,7 +19,7 @@ jobs:
           omit_default: "false"
       
       - name: Generate README
-        uses: .github/actions/generate-docs
+        uses: ./.github/actions/generate-docs
         with:
           command: readme
           schema_path: "tests/redis/values.schema.json"
