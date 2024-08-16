@@ -95,7 +95,7 @@ func TestGenerateMarkdownTableWithHeader_OmitDft(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := generateMarkdownTableWithHeader(tt.schema, tt.omitDft)
+			got := GenerateValues(tt.schema, tt.omitDft)
 			if strings.TrimSpace(got) != strings.TrimSpace(tt.expect) {
 				t.Errorf("generateMarkdownTableWithHeader() = %v, expect %v", got, tt.expect)
 			}
