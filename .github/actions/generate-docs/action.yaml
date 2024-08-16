@@ -4,25 +4,35 @@ description: "A reusable GitHub Action to generate values or README files using 
 inputs:
   command:
     description: "Specify 'values' to generate values.yaml or 'readme' to generate README.md"
+    required: true
     default: "values"
 
   schema_path:
     description: "Path to the values.schema.json file"
+    required: true
 
   output_file:
     description: "Output file path"
+    required: true
 
   omit_default:
     description: "Omit default values when generating values.yaml (only applicable for 'values' command)"
-    type: choice
-    options: 
-    - "true"
-    - "false"
+    required: false
+    default: "true"
 
 runs:
   using: "composite"
   steps:
+    - name: Validate omit_default
+      shell: bash
+      run: |
+        if [[ "${{ inputs.omit_default }}" != "true" && "${{ inputs.omit_default }}" != "false" ]]; then
+          echo "Invalid value for omit_default: ${{ inputs.omit_default }}. It must be 'true' or 'false'."
+          exit 1
+        fi
+
     - name: Generate Values or README
+      shell: bash
       run: |
         if [ "${{ inputs.command }}" = "values" ]; then
           docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace ghcr.io/danspts/helmdocs:1.6.1 \
