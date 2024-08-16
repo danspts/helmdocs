@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/danspts/helmdocs/compare/v1.5.0...v1.6.0) (2024-08-16)
+
+
+### Features
+
+* CLI + test - add option for output file and add cmd tests ([c1d0272](https://github.com/danspts/helmdocs/commit/c1d0272eb2f6a0b1a09f9c08d506e30093fd13c9))
+
 ## [1.5.0](https://github.com/danspts/helmdocs/compare/v1.4.8...v1.5.0) (2024-08-14)
 
 
