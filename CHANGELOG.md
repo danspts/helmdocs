@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.6.1](https://github.com/danspts/helmdocs/compare/v1.6.0...v1.6.1) (2024-08-16)
+
+
+### Bug Fixes
+
+* Parsing - fix hidden can be of any type ([1d6d3d6](https://github.com/danspts/helmdocs/commit/1d6d3d6ee9d573d13f050f02a239ab872187fe04))
+* Parsing - lint ([890e0bb](https://github.com/danspts/helmdocs/commit/890e0bb82722933a86b9c03d5bc8ad24234a1950))
+
 ## [1.6.0](https://github.com/danspts/helmdocs/compare/v1.5.0...v1.6.0) (2024-08-16)
 
 
